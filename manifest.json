@@ -17,6 +17,7 @@
   "content_scripts":[{
         "all_frames": true,
         "js": [ "jquery.min.js", "main.js" ],
-        "matches": [ "*://*.youtube.com/*"] 
+        "matches": [ "*://*.youtube.com/*"] ,
+        "run_at":"document_end"
   }]
 }
