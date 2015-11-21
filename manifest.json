@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "Getting started example",
-  "description": "This extension shows a Google Image search result for the current page",
+  "name": "YouTube Timed Comments",
+  "description": "This extension shows comments with timestamp on the progress bar of a YouTube video",
   "version": "1.0",
 
   "browser_action": {
