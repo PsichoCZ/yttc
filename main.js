@@ -2,8 +2,12 @@
 
 var progress= $('.ytp-progress-list');
 console.log(progress);
-debugger;
-progress.prepend('<div>Testing!</div>');
-progress.append("<div>test</div>");
-progress.addClass("test");
+var mark = $("<div class='mark'>test</div>");
+progress.append(mark);
  
+ 
+ 
+function moveItem() {
+ 	$(".html5-video-player").removeClass("ytp-autohide");
+}
+setInterval(moveItem,100);
