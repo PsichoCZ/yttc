@@ -17,38 +17,37 @@ function getURLParameter(name) {
 // 	document.getElementsByClassName("mark")[0].onclick = click;
 // 	player  = document.getElementsByClassName('html5-video-player')[0];
 // }
-getYTComments(getURLParameter('v'),function(data){
-		alert(data);
-	});
 	
 	
+function showMarks(){
+    
+    getYTComments(getURLParameter('v'),function(data){
+        alert(data);
+        $('.mark').remove();
+        $.each(data, function(index,value){
+            
+                // Find the container and append the mark
+                var progress= $('.ytp-progress-bar-container');
+                console.log(progress);
+                var mark = $("<div class='mark' onclick='click' >\
+                                <div class='title'>"+ value.text +"</div>\
+                                <div class='button'></div>\
+                            <div>");
+                progress.append(mark);
+                mark.css('left', value.seconds);
+                mark.on('click', click);
+        });
+        
 
+    });
+}
 
 	
 
-// Find the container and append the mark
-var progress= $('.ytp-progress-bar-container');
-console.log(progress);
-var mark = $("<div class='mark'  >\
-				<div class='title'>test</div>\
-				<div class='button'></div>\
-			<div>");
-progress.append(mark);
-
-<<<<<<< HEAD
- $(".html5-video-player").on("StateChanged", function(){
-	 alert();
- })
- document.getElementById('player').addEventListener(
-        'onStateChange', alert
-    );
- 
- 
-=======
 
 
 
->>>>>>> origin/master
+
 // Disable hiding menu for testing purpose
 function moveItem() {
  	$(".html5-video-player").removeClass("ytp-autohide");
@@ -56,10 +55,11 @@ function moveItem() {
 setInterval(moveItem,100);
 
 
- var oldLocation = window.location.href;
+ var oldLocation = "";
  setInterval(function() {
     if(window.location.href != oldLocation) {
-         alert("changed");
-         oldLocation = window.location.href
+         console.log("changed");
+         oldLocation = window.location.href;
+         showMarks();
     }
 }, 1000); // check every second
