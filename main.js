@@ -1,12 +1,15 @@
 
 
 // Get injection.js and append it to document
-var s = document.createElement('script');
-s.src = chrome.extension.getURL('injection.js');
-s.onload = function() {
-    this.parentNode.removeChild(this);
-};
-(document.head || document.documentElement).appendChild(s);
+function runInjection (){
+    var s = document.createElement('script');
+    s.src = chrome.extension.getURL('injection.js');
+    s.onload = function() {
+        this.parentNode.removeChild(this);
+    };
+    (document.head || document.documentElement).appendChild(s);
+}
+
 
 
 // Get comments
@@ -22,23 +25,28 @@ function getURLParameter(name) {
 function showMarks(){
     
     getYTComments(getURLParameter('v'),function(data){
-        alert(data);
+        // alert(data);
         $('.mark').remove();
         $.each(data, function(index,value){
             
                 // Find the container and append the mark
                 var progress= $('.ytp-progress-bar-container');
                 console.log(progress);
-                var mark = $("<div class='mark' onclick='click' >\
+                var mark = $("<div class='mark'>\
                                 <div class='title'>"+ value.text +"</div>\
-                                <div class='button'></div>\
+                                <div class='button' data-time='"+value.time+"' ></div>\
                             <div>");
                 progress.append(mark);
-                mark.css('left', value.seconds);
-                mark.on('click', click);
+                if (value.position <= 50){
+                    mark.css('left', value.position+'%');
+                }
+                else{
+                    mark.css('right', (100- value.position)+'%');
+                    mark.addClass('right');
+                }
         });
         
-
+        runInjection();
     });
 }
 
@@ -55,10 +63,10 @@ function moveItem() {
 setInterval(moveItem,100);
 
 
- var oldLocation = "";
- setInterval(function() {
+var oldLocation = "";
+setInterval(function() {
     if(window.location.href != oldLocation) {
-         console.log("changed");
+        console.log('change');
          oldLocation = window.location.href;
          showMarks();
     }
