@@ -8,6 +8,15 @@ s.onload = function() {
 };
 (document.head || document.documentElement).appendChild(s);
      
+	 
+// Get comments
+function getURLParameter(name) {
+  return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
+}
+
+getYTComments(getURLParameter('v'),function(data){
+	alert(data);
+	});
 
 // Find the container and append the mark
 var progress= $('.ytp-progress-bar-container');

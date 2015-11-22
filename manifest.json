@@ -16,7 +16,7 @@
   ],
   "content_scripts":[{
         "all_frames": true,
-        "js": [ "jquery.min.js", "main.js", "youtube.js", "moment.min.js" ],
+        "js": ["youtube.js", "jquery.min.js", "main.js"],
         "css": ["style.css"],
         "matches": [ "*://*.youtube.com/*"] ,
         "run_at":"document_end"
