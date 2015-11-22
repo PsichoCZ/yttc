@@ -1,0 +1,40 @@
+.mark{
+	height: 100%; 
+	z-index: 100;
+    min-width: 5px;
+    height: 100%;
+    position: absolute;
+	bottom: 0;
+	
+}
+
+.mark .title{
+	visibility: collapse;
+	display: block;
+    bottom: 0;
+    position: absolute;
+    margin-bottom: 5px;
+}
+
+.mark:hover .title{
+	visibility: visible;
+}
+
+
+.mark .button{
+    height: 100%;
+    position: absolute;
+    z-index: 100;
+    background-color: green;
+	min-width: 2px;   
+	background-color: blue;
+	opacity: 0.5;
+}
+.mark:hover .button{
+	min-width: 4px;   
+	background-color: blue;
+	opacity: 1;
+}
+.mark.right .button, .mark.right title{
+	right: 0;
+}
