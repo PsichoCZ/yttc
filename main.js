@@ -13,9 +13,15 @@ s.onload = function() {
 function getURLParameter(name) {
   return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
 }
-
+// window.onload = function(){ 
+// 	document.getElementsByClassName("mark")[0].onclick = click;
+// 	player  = document.getElementsByClassName('html5-video-player')[0];
+// }
 getYTComments(getURLParameter('v'),function(data){
 	alert(data);
+	});
+	$(document).ready(function(){
+		alert();
 	});
 
 // Find the container and append the mark
