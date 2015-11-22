@@ -18,11 +18,13 @@ function getURLParameter(name) {
 // 	player  = document.getElementsByClassName('html5-video-player')[0];
 // }
 getYTComments(getURLParameter('v'),function(data){
-	alert(data);
+		alert(data);
 	});
-	$(document).ready(function(){
-		alert();
-	});
+	
+	
+
+
+	
 
 // Find the container and append the mark
 var progress= $('.ytp-progress-bar-container');
@@ -33,7 +35,12 @@ var mark = $("<div class='mark'  >\
 			<div>");
 progress.append(mark);
 
- 
+ $(".html5-video-player").on("StateChanged", function(){
+	 alert();
+ })
+ document.getElementById('player').addEventListener(
+        'onStateChange', alert
+    );
  
  
 // Disable hiding menu for testing purpose

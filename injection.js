@@ -10,3 +10,6 @@ function click (event){
 		event.stopPropagation();
 		player.seekTo(100, true);
 	};
+	
+
+document.addEventListener("DOMContentLoaded", function(){alert()}, false);
