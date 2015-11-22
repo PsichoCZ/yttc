@@ -1,21 +1,27 @@
 
 
-var progress= $('.ytp-progress-list');
+// Get injection.js and append it to document
+var s = document.createElement('script');
+s.src = chrome.extension.getURL('injection.js');
+s.onload = function() {
+    this.parentNode.removeChild(this);
+};
+(document.head || document.documentElement).appendChild(s);
+     
+
+// Find the container and append the mark
+var progress= $('.ytp-progress-bar-container');
 console.log(progress);
-var mark = $("<a class='mark' href='http://www.youtube.com/watch?v=RVr0lbKZg5Q&t=45m05s'\
-					  class='yt-uix-sessionlink'  data-sessionlink='ei=oQ5RVpWiG4aiWuf0mtgM' onclick='test(); return false;' >\
+var mark = $("<div class='mark'  >\
 				<div class='title'>test</div>\
 				<div class='button'></div>\
-			<a>");
+			<div>");
 progress.append(mark);
+
  
  
- function test(){
-	//  player.stopVideo()
-	alert("");
- }
  
- 
+// Disable hiding menu for testing purpose
 function moveItem() {
  	$(".html5-video-player").removeClass("ytp-autohide");
 }
