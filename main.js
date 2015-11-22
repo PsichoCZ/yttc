@@ -7,8 +7,8 @@ s.onload = function() {
     this.parentNode.removeChild(this);
 };
 (document.head || document.documentElement).appendChild(s);
-     
-	 
+
+
 // Get comments
 function getURLParameter(name) {
   return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
@@ -35,6 +35,7 @@ var mark = $("<div class='mark'  >\
 			<div>");
 progress.append(mark);
 
+<<<<<<< HEAD
  $(".html5-video-player").on("StateChanged", function(){
 	 alert();
  })
@@ -43,8 +44,22 @@ progress.append(mark);
     );
  
  
+=======
+
+
+
+>>>>>>> origin/master
 // Disable hiding menu for testing purpose
 function moveItem() {
  	$(".html5-video-player").removeClass("ytp-autohide");
 }
 setInterval(moveItem,100);
+
+
+ var oldLocation = window.location.href;
+ setInterval(function() {
+    if(window.location.href != oldLocation) {
+         alert("changed");
+         oldLocation = window.location.href
+    }
+}, 1000); // check every second
