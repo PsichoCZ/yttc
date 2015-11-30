@@ -57,10 +57,10 @@ function showMarks(){
 
 
 // Disable hiding menu for testing purpose
-function moveItem() {
- 	$(".html5-video-player").removeClass("ytp-autohide");
-}
-setInterval(moveItem,100);
+// function moveItem() {
+//  	$(".html5-video-player").removeClass("ytp-autohide");
+// }
+// setInterval(moveItem,100);
 
 
 var oldLocation = "";
